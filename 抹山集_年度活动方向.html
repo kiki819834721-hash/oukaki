@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抹山集 · 2026 年度活动方向</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --g50: #f0f7ed; --g100: #dcecd4; --g200: #b8d9a8;
+  --g300: #8dc078; --g400: #6ba354; --g500: #4c8636;
+  --g600: #3b6b2a; --g700: #2e5522; --g800: #26441c; --g900: #1f3818;
+  --warm: #faf6f0; --text: #2c2c2c; --text-light: #6b7280;
+  --radius: 16px; --shadow: 0 2px 20px rgba(0,0,0,.05);
+}
+body {
+  font-family: 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--warm); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.hero {
+  position: relative; min-height: 100vh;
+  background: linear-gradient(160deg,var(--g900) 0%,var(--g700) 35%,var(--g600) 70%,var(--g500) 100%);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size: 56px 56px; pointer-events: none;
+}
+.hero-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 600px 500px at 20% 70%,rgba(141,192,120,.10) 0%,transparent 60%),radial-gradient(ellipse 700px 600px at 80% 30%,rgba(255,226,122,.06) 0%,transparent 50%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; text-align: center; padding: 2rem; max-width: 800px; }
+.hero-badge {
+  display: inline-block; background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.6); font-size: .7rem; letter-spacing: .18em;
+  padding: .35rem 1.2rem; border-radius: 999px; margin-bottom: 1.5rem; font-weight: 500;
+}
+.hero h1 {
+  font-size: clamp(2.4rem,6vw,4rem); font-weight: 900; color: #fff;
+  line-height: 1.15; margin-bottom: .3rem; letter-spacing: .02em;
+}
+.hero h1 em { font-style: normal; background: linear-gradient(135deg,var(--g200),#ffe27a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: clamp(1rem,1.8vw,1.15rem); color: rgba(255,255,255,.6); margin-top: .8rem; font-weight: 300; letter-spacing: .06em; line-height: 1.9; }
+.hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.2rem; margin-top: 2rem; }
+.hero-meta span { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: .3rem 1rem; font-size: .82rem; color: rgba(255,255,255,.8); }
+.scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.18); font-size: .7rem; letter-spacing: .12em; animation: bounce 2.5s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+.section { max-width: 920px; margin: 0 auto; padding: 5rem 1.5rem; }
+.section-alt { background: #fff; max-width: 100%; }
+.section-alt .inner { max-width: 920px; margin: 0 auto; padding: 5rem 1.5rem; }
+.section-label { display: flex; align-items: center; gap: .5rem; font-size: .68rem; letter-spacing: .2em; color: var(--g400); font-weight: 500; margin-bottom: .2rem; }
+.section-label::before { content: ''; width: 20px; height: 2px; background: var(--g300); border-radius: 1px; flex-shrink: 0; }
+.section h2 { font-size: clamp(1.5rem,3vw,2rem); font-weight: 700; color: var(--g900); line-height: 1.3; margin-bottom: .3rem; }
+.section-lead { font-size: .95rem; color: var(--text-light); line-height: 1.8; margin-bottom: 2rem; max-width: 640px; }
+.season-row { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,.05); }
+.season-row:last-child { border-bottom: none; }
+.season-marker { text-align: right; }
+.season-marker .num { font-size: 2.8rem; font-weight: 900; line-height: 1; letter-spacing: -.02em; }
+.season-marker .num.s1 { color: #f59e0b; }
+.season-marker .num.s2 { color: #06b6d4; }
+.season-marker .num.s3 { color: #8b5cf6; }
+.season-marker .label { font-size: .72rem; color: var(--text-light); font-weight: 500; letter-spacing: .08em; margin-top: .1rem; }
+.season-body { flex: 1; }
+.season-body h3 { font-size: 1.15rem; font-weight: 700; color: var(--g800); margin-bottom: .15rem; }
+.season-body .tagline { font-size: .85rem; color: var(--g500); font-weight: 500; margin-bottom: .4rem; }
+.season-body p { font-size: .88rem; color: var(--text-light); line-height: 1.8; max-width: 600px; }
+.season-body .bubble-list { display: flex; flex-wrap: wrap; gap: .4rem .6rem; margin-top: .6rem; }
+.season-body .bubble-list span { background: var(--g50); border: 1px solid rgba(0,0,0,.04); border-radius: 999px; padding: .15rem .7rem; font-size: .78rem; color: var(--g600); }
+.month-strip { display: grid; grid-template-columns: repeat(6,1fr); gap: .6rem; margin-top: 2rem; }
+.month-card { background: #fff; border-radius: 12px; padding: 1rem .6rem; text-align: center; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.04); transition: transform .2s; }
+.month-card:hover { transform: translateY(-2px); }
+.month-card .mo { font-size: 1.2rem; font-weight: 700; color: var(--g600); margin-bottom: .15rem; }
+.month-card .mo-icon { font-size: 1.2rem; margin-bottom: .15rem; }
+.month-card .theme { font-size: .72rem; color: var(--text-light); line-height: 1.4; }
+.dir-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+.dir-card { background: var(--g50); border-radius: 14px; padding: 1.5rem; border: 1px solid rgba(0,0,0,.03); }
+.dir-card .icon { font-size: 1.8rem; margin-bottom: .3rem; }
+.dir-card h4 { font-size: .95rem; font-weight: 700; color: var(--g700); margin-bottom: .2rem; }
+.dir-card p { font-size: .82rem; color: var(--text-light); line-height: 1.7; }
+.year-flow { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1.5rem; text-align: center; }
+.flow-item { background: #fff; border-radius: 14px; padding: 1.5rem .8rem; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,.04); position: relative; }
+.flow-item .phase { font-size: .65rem; letter-spacing: .15em; color: var(--g400); font-weight: 500; margin-bottom: .2rem; }
+.flow-item .big-icon { font-size: 2rem; margin-bottom: .3rem; }
+.flow-item h4 { font-size: 1rem; font-weight: 700; color: var(--g800); }
+.flow-item p { font-size: .78rem; color: var(--text-light); margin-top: .15rem; line-height: 1.5; }
+.flow-arrow { position: absolute; right: -.7rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--g300); }
+.tagline-block { background: linear-gradient(135deg,var(--g900),var(--g700)); border-radius: var(--radius); padding: 2.5rem 2rem; color: #fff; text-align: center; margin-top: 2rem; }
+.tagline-block .q { font-size: 1.6rem; font-weight: 300; line-height: 1.6; max-width: 600px; margin: 0 auto .6rem; color: rgba(255,255,255,.85); }
+.tagline-block .a { font-size: 1rem; font-weight: 500; color: var(--g200); }
+.footer { text-align: center; padding: 2.5rem 1.5rem; background: var(--g900); color: rgba(255,255,255,.35); font-size: .8rem; line-height: 1.8; }
+.footer strong { color: rgba(255,255,255,.6); font-weight: 500; }
+@media (max-width: 768px) {
+  .year-flow { grid-template-columns: 1fr; gap: .8rem; }
+  .flow-arrow { display: none; }
+  .season-row { grid-template-columns: 1fr; gap: .3rem; }
+  .season-marker { text-align: left; display: flex; gap: .5rem; align-items: baseline; }
+  .season-marker .num { font-size: 1.8rem; }
+  .month-strip { grid-template-columns: repeat(3,1fr); }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="hero-badge">2026 · 年度企划</span>
+    <h1>在贵州的每一天<br>都有一杯<em>抹山集</em></h1>
+    <p class="hero-sub">从夏天到冬天，从运动场到文化现场——<br>抹山集陪你走过一整年的贵州生活方式。</p>
+    <div class="hero-meta">
+      <span>🌿 7-9月 · 运动健康</span>
+      <span>🏔️ 8-9月 · 铜仁户外</span>
+      <span>📖 10-12月 · 文化季</span>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL ▼</div>
+</section>
+
+<section class="section">
+  <div class="section-label">OVERVIEW</div>
+  <h2>一年三个切面</h2>
+  <p class="section-lead">抹山集不只是一杯茶饮——它是你在贵州夏日街头的一口清爽，是周末山里骑行后歇脚的理由，是冬天围炉时手里那杯温热的陪伴。我们从三个维度出发，让每一季的抹山集都长成贵州人生活里自然的一部分。</p>
+  <div class="year-flow">
+    <div class="flow-item">
+      <div class="phase">PHASE 1</div>
+      <div class="big-icon">🩹</div>
+      <h4>生活补丁计划</h4>
+      <p>7月 · 贵阳</p>
+      <div class="flow-arrow">▸</div>
+    </div>
+    <div class="flow-item">
+      <div class="phase">PHASE 2</div>
+      <div class="big-icon">🏔️</div>
+      <h4>山地运动季</h4>
+      <p>8-9月 · 铜仁及贵州</p>
+      <div class="flow-arrow">▸</div>
+    </div>
+    <div class="flow-item">
+      <div class="phase">PHASE 3</div>
+      <div class="big-icon">📖</div>
+      <h4>在地文化季</h4>
+      <p>10-12月 · 贵州全境</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="inner">
+    <div class="section-label">PHASE 1 · 7月</div>
+    <h2>生活补丁计划</h2>
+    <p class="section-lead">夏天该有的样子，是不留遗憾地大口吃、大步走、大声笑。</p>
+    <div class="season-row">
+      <div class="season-marker">
+        <div class="num s1">07</div>
+        <div class="label">JULY</div>
+      </div>
+      <div class="season-body">
+        <h3>生活补丁计划</h3>
+        <div class="tagline">把夏天的小缺憾，一个一个补回来</div>
+        <p>以味觉、生活、身体、情绪四枚"生活补丁"回应年轻人夏日里的真实痛点——重油饮食的腻感、日常的无趣、久坐的疲惫和精神内耗。门店互动结合线下滑板与素人音乐会，用轻松的方式和年轻人站在一起。</p>
+        <div class="bubble-list">
+          <span>🩹 味觉补丁 · 抹茶解腻</span>
+          <span>🎲 生活补丁 · 盲盒贴纸</span>
+          <span>🛹 身体补丁 · 滑板体验</span>
+          <span>🎵 情绪补丁 · 素人音乐会</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">PHASE 2 · 8-9月</div>
+  <h2>山地运动季</h2>
+  <p class="section-lead">贵州的山和水，天生就是用来撒野的。这个夏末秋初，抹山集跟年轻人一起动起来。</p>
+
+  <div class="season-row">
+    <div class="season-marker">
+      <div class="num s2">08</div>
+      <div class="label">AUG</div>
+    </div>
+    <div class="season-body">
+      <h3>铜仁户外 · 山地奇遇</h3>
+      <div class="tagline">用脚丈量黔东的好山好水</div>
+      <p>铜仁是贵州的户外天堂——梵净山徒步、太平河漂流、锦江沿岸骑行。抹山集以"运动搭子"的角色切入，在铜仁的经典户外路线设置互动补给点，邀请运动素人和户外爱好者一起出发。不搞竞技，只讲体验：爬山爬到半山腰喝一杯冰抹茶、漂流畅快后领一杯柚見冰柠——抹山集就是你的运动补给站。</p>
+      <div class="bubble-list">
+        <span>🥾 梵净山徒步计划</span>
+        <span>🛶 太平河清凉漂流</span>
+        <span>🚴 锦江绿道骑行</span>
+        <span>📸 户外素人打卡</span>
+        <span>🧃 运动补给站互动</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="season-row">
+    <div class="season-marker">
+      <div class="num s2">09</div>
+      <div class="label">SEP</div>
+    </div>
+    <div class="season-body">
+      <h3>运动素人计划</h3>
+      <div class="tagline">不用很专业，动起来就很好</div>
+      <p>这个月的重点是"软广渗透"——不找明星，不拍广告片。我们找到贵州本地真实的运动素人：周末去山里骑行的上班族、带狗爬山的大姐、每周漂流一次的露营爱好者。用他们的真实镜头和日常分享，把抹山集自然地放进"运动后喝什么"的场景里。小红书和抖音铺设内容，让年轻人刷到的时候觉得：这不就是我吗？</p>
+      <div class="bubble-list">
+        <span>🎬 运动素人真实记录</span>
+        <span>📱 小红书/抖音内容铺设</span>
+        <span>🏞️ 户外场景软植入</span>
+        <span>🤝 素人合作招募</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="month-strip">
+    <div class="month-card">
+      <div class="mo-icon">🩹</div>
+      <div class="mo">7月</div>
+      <div class="theme">生活补丁</div>
+    </div>
+    <div class="month-card">
+      <div class="mo-icon">🥾</div>
+      <div class="mo">8月</div>
+      <div class="theme">铜仁户外</div>
+    </div>
+    <div class="month-card">
+      <div class="mo-icon">📱</div>
+      <div class="mo">9月</div>
+      <div class="theme">素人传播</div>
+    </div>
+    <div class="month-card">
+      <div class="mo-icon">📖</div>
+      <div class="mo">10月</div>
+      <div class="theme">文化季·启</div>
+    </div>
+    <div class="month-card">
+      <div class="mo-icon">🏮</div>
+      <div class="mo">11月</div>
+      <div class="theme">文化季·中</div>
+    </div>
+    <div class="month-card">
+      <div class="mo-icon">🪔</div>
+      <div class="mo">12月</div>
+      <div class="theme">文化季·收</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="inner">
+    <div class="section-label">PHASE 3 · 10-12月</div>
+    <h2>在地文化季</h2>
+    <p class="section-lead">贵州有深厚的文化脉络——非遗手艺、民族节庆、山野书卷气。抹山集想把它们带到更多人面前。</p>
+
+    <div class="season-row">
+      <div class="season-marker">
+        <div class="num s3">10</div>
+        <div class="label">OCT</div>
+      </div>
+      <div class="season-body">
+        <h3>非遗与手艺</h3>
+        <div class="tagline">那些快要被遗忘的手艺，值得被看见</div>
+        <p>聚焦贵州的非物质文化遗产和手工艺——苗绣、蜡染、银饰、土陶、竹编。抹山集以"文化配角"的身份参与：门店空间变身迷你手艺展陈空间，邀请手艺人到店做分享和体验工坊。一杯抹茶的时间，认识一样手艺，听懂一个故事。</p>
+        <div class="bubble-list">
+          <span>🧵 苗绣·手艺体验</span>
+          <span>🪡 蜡染工坊</span>
+          <span>🥣 土陶手作</span>
+          <span>🏪 门店手艺展陈</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="season-row">
+      <div class="season-marker">
+        <div class="num s3">11</div>
+        <div class="label">NOV</div>
+      </div>
+      <div class="season-body">
+        <h3>地方风物</h3>
+        <div class="tagline">贵州的风土人情，都在一杯茶里</div>
+        <p>从贵州各地的特色风物出发——遵义羊肉粉的一碗热气、黔东南的酸食文化、毕节的荞麦香、雷山的茶园故事。抹山集以"风物策展人"的角色，把地方食材和抹茶结合，推出季节限定特调，同时联动本地风物品牌做联合内容。</p>
+        <div class="bubble-list">
+          <span>🍵 季节限定·风物特调</span>
+          <span>🌾 地方食材故事</span>
+          <span>🤝 本地品牌联名</span>
+          <span>📖 风物内容专栏</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="season-row">
+      <div class="season-marker">
+        <div class="num s3">12</div>
+        <div class="label">DEC</div>
+      </div>
+      <div class="season-body">
+        <h3>围炉与回望</h3>
+        <div class="tagline">冬天最暖的事，是围在一起</div>
+        <p>用一场温暖的收尾为全年画上句号。抹山集门店推出冬日围炉煮茶体验，用热气腾腾的抹茶饮和暖冬小食陪伴消费者度过年末。同时在线上发起"年度瞬间"征集活动——今年在贵州吃到的好东西、走到的好地方、遇到的好故事。品牌官方账号精选内容制作年度回顾特辑，作为全年企划的收官。</p>
+        <div class="bubble-list">
+          <span>🔥 围炉煮茶·冬季限定</span>
+          <span>📸 年度瞬间征集</span>
+          <span>🎬 年度回顾特辑</span>
+          <span>🎁 岁末感恩回馈</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">THREAD</div>
+  <h2>贯穿全年的一条线</h2>
+  <p class="section-lead">三季主题各有侧重，但有一条线始终没断——素人。</p>
+  <div class="dir-grid">
+    <div class="dir-card">
+      <div class="icon">👤</div>
+      <h4>素人即主角</h4>
+      <p>不找大明星，不拍广告片。每一个素人故事都比精心编排的剧本更动人——无论是7月登台的素人歌手，9月骑车进山的上班族，还是12月分享年度瞬间的普通顾客。</p>
+    </div>
+    <div class="dir-card">
+      <div class="icon">📱</div>
+      <h4>社交内容贯穿</h4>
+      <p>小红书与抖音是主阵地。素人真实记录加上品牌轻量引导，让"抹山集"成为贵州年轻人生活方式里的一个自然符号，而不是硬推的品牌广告。</p>
+    </div>
+    <div class="dir-card">
+      <div class="icon">🎯</div>
+      <h4>场景即渠道</h4>
+      <p>不靠铺量占领心智，靠场景建立关联。解腻场景、户外场景、文化场景、暖冬场景——让消费者在"需要"的时候恰好看见抹山集。</p>
+    </div>
+    <div class="dir-card">
+      <div class="icon">🌱</div>
+      <h4>从贵州长出来</h4>
+      <p>每一季的内容都和贵州的真实风土绑定——贵阳的街巷、铜仁的山河、非遗手艺、地方风物。抹山集的品牌故事，就是贵州生活方式的故事。</p>
+    </div>
+  </div>
+
+  <div class="tagline-block">
+    <div class="q">&ldquo; 我们不想做一家&lsquo;卖茶的&rsquo;。<br>我们想做贵州生活方式的参与者。&rdquo;</div>
+    <div class="a">—— 抹山集 · 2026 年度企划</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <strong>抹山集</strong><br>
+  贵州本土抹茶品牌 · 清爽解腻 · 不长胖<br>
+  2026 年度活动方向 · 概览
+</footer>
+
+</body>
+</html>
